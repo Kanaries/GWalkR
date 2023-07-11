@@ -1,0 +1,17 @@
+Package: GWalkR
+Title: Interactive Exploratory Data Analysis Tool in R
+Version: 0.1.0
+Authors@R: c(
+    person("Yue", "Yu", , "yyubv@connect.ust.hk", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-9302-0793")),
+    person("Kanaries Data Inc.", role = c("cph", "fnd")))
+Maintainer: Yue Yu <yyubv@connect.ust.hk>
+Description: Simplify your R data analysis and data visualization workflow, by turning your data frame into a Tableau-style User Interface for visual exploration.
+License: Apache License (>= 2)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+URL: https://github.com/Kanaries/GWalkR/
+Imports: 
+    htmlwidgets,
+    jsonlite,

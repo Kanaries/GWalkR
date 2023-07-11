@@ -47,3 +47,10 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+.DS_Store
+node_modules
+
+.vscode/
+
+inst/htmlwidgets/lib/gwalkr
