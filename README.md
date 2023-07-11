@@ -1,5 +1,10 @@
 # GWalkR: Your One-Stop R Package for Exploratory Data Analysis with Visualization
 
+![](https://img.shields.io/github/actions/workflow/status/kanaries/GWalkR/web-app-build.yml?style=flat-square)
+![](https://img.shields.io/github/license/kanaries/GWalkR?style=flat-square)
+[![](https://img.shields.io/badge/twitter-kanaries_data-03A9F4?style=flat-square&logo=twitter)](https://twitter.com/kanaries_data)
+[![](https://img.shields.io/discord/987366424634884096?color=%237289da&label=Discord&logo=discord&logoColor=white&style=flat-square)](https://discord.gg/WWHraZ8SeV)
+
 Start Exploratory Data Analysis (EDA) in R with a Single Line of Code!
 [GWalkR](https://github.com/Kanaries/GWalkR) is an interactive Exploratory Data Analysis (EDA) Tool in R.
 It integrates the htmlwidgets with [Graphic Walker](https://github.com/Kanaries/graphic-walker).
