@@ -1,3 +1,5 @@
+[English](README.md) | [中文](./docs/README.zh.md)
+
 # GWalkR: Your One-Stop R Package for Exploratory Data Analysis with Visualization
 
 ![](https://img.shields.io/github/actions/workflow/status/kanaries/GWalkR/web-app-build.yml?style=flat-square)
@@ -12,6 +14,7 @@ It can can simplify your R data analysis and data visualization workflow, by tur
 
 <img width="1437" alt="image" src="https://github.com/Bruceshark/GWalkR/assets/33870780/26967dda-57c0-4abd-823c-63037c8f5168">
 
+> If you prefer using Python, you can check out [PyGWalker](https://github.com/Kanaries/pygwalker)!
 
 ## Getting Started
 
@@ -19,7 +22,7 @@ It can can simplify your R data analysis and data visualization workflow, by tur
 
 #### Through Package Archive File (.tar.gz)
 
-First, download the package archive file `GWalkR_0.1.0.tar.gz` from the Github release.
+First, download the package archive file `GWalkR_0.1.0.tar.gz` from [this link](https://kanaries-app.s3.ap-northeast-1.amazonaws.com/oss/gwakr/GWalkR_0.1.0.tar.gz).
 Open R Studio, click "Install" in the "Packages" window, and select "Package Archive File (.tgz; .tar.gz)" in the "Install from". Then, select the archive in your file system and click "Install".
 
 #### Through Running R Script
@@ -27,7 +30,7 @@ Open R Studio, click "Install" in the "Packages" window, and select "Package Arc
 Alternatively, you can run the following R code in your script to download without a lot of clicking.
 
 ```R
-url <- "https://github.com/Bruceshark/GWalkR/releases/download/preview/GWalkR_0.1.0.tar.gz"
+url <- "https://kanaries-app.s3.ap-northeast-1.amazonaws.com/oss/gwakr/GWalkR_0.1.0.tar.gz"
 destfile <- "GWalkR_0.1.0.tar.gz"
 download.file(url, destfile)
 install.packages(destfile, repos = NULL, type = "source")
@@ -45,4 +48,6 @@ library(GWalkR)
 data(iris)
 gwalkr(iris)
 ```
+
+<img width="1437" alt="image" src="https://github.com/Bruceshark/GWalkR/assets/33870780/718d8ff6-4ad5-492d-9afb-c4ed67573f51">
 
