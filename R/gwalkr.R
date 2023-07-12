@@ -22,14 +22,17 @@ gwalkr <- function(data, lang = "en") {
   x = list(
     dataSource = jsonlite::toJSON(data, pretty=TRUE),
     rawFields = raw_fields(data),
-    i18nLang = lang
+    i18nLang = lang,
+    hideDataSourceConfig = TRUE
   )
 
   # create widget
   htmlwidgets::createWidget(
     name = 'gwalkr',
     x,
-    package = 'GWalkR'
+    package = 'GWalkR',
+    width='100%',
+    height='100%'
   )
 }
 
