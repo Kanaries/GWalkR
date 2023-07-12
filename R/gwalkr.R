@@ -29,7 +29,9 @@ gwalkr <- function(data, lang = "en") {
   htmlwidgets::createWidget(
     name = 'gwalkr',
     x,
-    package = 'GWalkR'
+    package = 'GWalkR',
+    width='100%',
+    height='100%'
   )
 }
 
