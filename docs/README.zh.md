@@ -1,3 +1,5 @@
+<img src="./img/hex_logo.png" align="right" alt="logo" width="120" height = "139" style = "border: none; float: right;">
+
 # GWalkR: 一行代码将数据集转化为交互式可视化分析工具
 
 ![](https://img.shields.io/github/actions/workflow/status/kanaries/GWalkR/web-app-build.yml?style=flat-square)
@@ -20,21 +22,18 @@
 
 ### 安装 GWalkR
 
-#### 通过下载 .tar.gz 文件包安装
-
-首先，从[这个链接](https://kanaries-app.s3.ap-northeast-1.amazonaws.com/oss/gwakr/GWalkR_0.1.0.tar.gz)中下载包 GWalkR_0.1.0.tar.gz。
-打开 R Studio，点击 "Packages" 窗口中的 "Install"，然后在 "Install from" 中选择 "Package Archive File (.tgz; .tar.gz)"。然后，选择您的文件系统中的下载好的包，最后点击"Install"。
-
 #### 通过运行R脚本安装
 
-或者，您可以在脚本中运行以下R代码来下载。
+如果您已在R中安装了`devtools`，您可以在脚本中运行以下R代码来下载。
 
 ```R
-url <- "https://kanaries-app.s3.ap-northeast-1.amazonaws.com/oss/gwakr/GWalkR_0.1.0.tar.gz"
-destfile <- "GWalkR_0.1.0.tar.gz"
-download.file(url, destfile)
-install.packages(destfile, repos = NULL, type = "source")
+devtools::install_url("https://kanaries-app.s3.ap-northeast-1.amazonaws.com/oss/gwalkr/GWalkR_0.1.0.tar.gz")
 ```
+
+#### 通过下载 .tar.gz 文件包安装
+
+或者，从[这个链接](https://kanaries-app.s3.ap-northeast-1.amazonaws.com/oss/gwalkr/GWalkR_0.1.0.tar.gz)中下载包 GWalkR_0.1.0.tar.gz。
+打开 R Studio，点击 "Packages" 窗口中的 "Install"，然后在 "Install from" 中选择 "Package Archive File (.tgz; .tar.gz)"。然后，选择您的文件系统中的下载好的包，最后点击"Install"。
 
 #### 通过 CRAN 安装
 
