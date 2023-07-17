@@ -6,22 +6,29 @@
 #'
 #' @param data A data frame to be visualized in the GWalkR. The data frame should not be empty.
 #' @param lang A character string specifying the language for the widget. Possible values are "en" (default), "ja", "zh".
+#' @param columnSpecs An optional list of lists to manually specify the types of some columns in the data frame. 
+#' Each top level element in the list corresponds to a column, and the list assigned to each column should have 
+#' two elements: `analyticalType` and `semanticType`. `analyticalType` can 
+#' only be one of "measure" or "dimension". `semanticType` can only be one of 
+#' "quantitative", "temporal", "nominal" or "ordinal". For example:
+#' \code{list(
+#'   "gender" = list(analyticalType = "dimension", semanticType = "nominal"),
+#'   "age" = list(analyticalType = "measure", semanticType = "quantitative")
+#' )}
 #'
 #' @examples
-#' \dontrun{
 #' data(mtcars)
 #' gwalkr(mtcars)
-#' }
 #'
 #' @export
-gwalkr <- function(data, lang = "en") {
+gwalkr <- function(data, lang = "en", columnSpecs = list()) {
   if (!is.data.frame(data)) stop("data must be a data frame")
   lang <- match.arg(lang, choices = c("en", "ja", "zh"))
 
   # forward options using x
   x = list(
     dataSource = jsonlite::toJSON(data, pretty=TRUE),
-    rawFields = raw_fields(data),
+    rawFields = raw_fields(data, columnSpecs),
     i18nLang = lang,
     hideDataSourceConfig = TRUE
   )
