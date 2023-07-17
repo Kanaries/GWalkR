@@ -50,3 +50,13 @@ gwalkr(iris)
 
 <img width="1437" alt="image" src="https://github.com/Bruceshark/GWalkR/assets/33870780/718d8ff6-4ad5-492d-9afb-c4ed67573f51">
 
+## Main Features
+1. 🧑‍🎨 Turn a data frame into charts through simple drag-and-drop operations.
+2. 🤖️ [coming soon] Work with AI copilot in R: Let AI generate explorable charts for you!
+
+
+https://github.com/Kanaries/GWalkR/assets/33870780/4a3a9f9c-ff17-484b-9503-af82bd609b99
+
+
+3. ✨ [coming soon] Integration with Shiny app: Showcase your data insights with editable and explorable charts on a webpage!
+
