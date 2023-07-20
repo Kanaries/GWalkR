@@ -3,6 +3,7 @@
 #' Use this function to create a GWalkR interface from a given data frame in your "Viewer" window, and start your data exploration! Please make sure the width and the height of your "Viewer" window are large enough.
 #'
 #' @import htmlwidgets
+#' @import openssl
 #'
 #' @param data A data frame to be visualized in the GWalkR. The data frame should not be empty.
 #' @param lang A character string specifying the language for the widget. Possible values are "en" (default), "ja", "zh".
@@ -53,6 +54,8 @@ gwalkr <- function(data, lang = "en", columnSpecs = list(), visConfig = NULL) {
 #'
 #' Output and render functions for using gwalkr within Shiny
 #' applications and interactive Rmd documents.
+#' 
+#' @import shiny
 #'
 #' @param outputId output variable to read from
 #' @param width,height Must be a valid CSS unit (like \code{'100\%'},
