@@ -4,5 +4,5 @@ dependencies:
     src: htmlwidgets/lib/gwalkr
     script:
       - gwalkr-app.iife.js
+    stylesheet: 
       - style.css
-      - vite.svg

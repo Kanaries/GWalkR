@@ -4,20 +4,33 @@
 \alias{gwalkr}
 \title{Create GWalkR Interface in "Viewer"}
 \usage{
-gwalkr(data, lang = "en")
+gwalkr(data, lang = "en", columnSpecs = list(), visConfig = NULL)
 }
 \arguments{
 \item{data}{A data frame to be visualized in the GWalkR. The data frame should not be empty.}
 
 \item{lang}{A character string specifying the language for the widget. Possible values are "en" (default), "ja", "zh".}
+
+\item{columnSpecs}{An optional list of lists to manually specify the types of some columns in the data frame.
+Each top level element in the list corresponds to a column, and the list assigned to each column should have
+two elements: \code{analyticalType} and \code{semanticType}. \code{analyticalType} can
+only be one of "measure" or "dimension". \code{semanticType} can only be one of
+"quantitative", "temporal", "nominal" or "ordinal". For example:
+\code{list(
+  "gender" = list(analyticalType = "dimension", semanticType = "nominal"),
+  "age" = list(analyticalType = "measure", semanticType = "quantitative")
+)}}
+
+\item{visConfig}{An optional config string to reproduce your chart. You can copy the string by clicking "export config" button on the GWalkR interface.}
+}
+\value{
+An \code{htmlwidget} object that can be rendered in R environments
 }
 \description{
 Use this function to create a GWalkR interface from a given data frame in your "Viewer" window, and start your data exploration! Please make sure the width and the height of your "Viewer" window are large enough.
 }
 \examples{
-\dontrun{
 data(mtcars)
 gwalkr(mtcars)
-}
 
 }
