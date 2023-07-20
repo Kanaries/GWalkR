@@ -4,7 +4,7 @@
 \alias{gwalkr}
 \title{Create GWalkR Interface in "Viewer"}
 \usage{
-gwalkr(data, lang = "en", columnSpecs = list())
+gwalkr(data, lang = "en", columnSpecs = list(), visConfig = NULL)
 }
 \arguments{
 \item{data}{A data frame to be visualized in the GWalkR. The data frame should not be empty.}
@@ -20,6 +20,9 @@ only be one of "measure" or "dimension". \code{semanticType} can only be one of
   "gender" = list(analyticalType = "dimension", semanticType = "nominal"),
   "age" = list(analyticalType = "measure", semanticType = "quantitative")
 )}}
+
+\item{visConfig}{An optional config string to reproduce your chart. You can copy the string by clicking "export config" button on the GWalkR interface.}
+}
 \value{
 An \code{htmlwidget} object that can be rendered in R environments
 }

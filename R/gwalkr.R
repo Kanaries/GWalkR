@@ -15,6 +15,7 @@
 #'   "gender" = list(analyticalType = "dimension", semanticType = "nominal"),
 #'   "age" = list(analyticalType = "measure", semanticType = "quantitative")
 #' )}
+#' @param visConfig An optional config string to reproduce your chart. You can copy the string by clicking "export config" button on the GWalkR interface.
 #'
 #' @return An \code{htmlwidget} object that can be rendered in R environments
 #'
@@ -23,7 +24,7 @@
 #' gwalkr(mtcars)
 #'
 #' @export
-gwalkr <- function(data, lang = "en", columnSpecs = list()) {
+gwalkr <- function(data, lang = "en", columnSpecs = list(), visConfig = NULL) {
   if (!is.data.frame(data)) stop("data must be a data frame")
   lang <- match.arg(lang, choices = c("en", "ja", "zh"))
 
@@ -34,7 +35,8 @@ gwalkr <- function(data, lang = "en", columnSpecs = list()) {
     dataSource = jsonlite::toJSON(data),
     rawFields = rawFields,
     i18nLang = lang,
-    hideDataSourceConfig = TRUE
+    hideDataSourceConfig = TRUE,
+    visSpec = visConfig
   )
 
   # create widget
