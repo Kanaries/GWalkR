@@ -16,3 +16,4 @@ BugReports: https://github.com/Kanaries/GWalkR/issues
 Imports: 
     htmlwidgets,
     jsonlite,
+    openssl

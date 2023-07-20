@@ -27,10 +27,12 @@ gwalkr <- function(data, lang = "en", columnSpecs = list()) {
   if (!is.data.frame(data)) stop("data must be a data frame")
   lang <- match.arg(lang, choices = c("en", "ja", "zh"))
 
+  rawFields <- raw_fields(data, columnSpecs)
+  colnames(data) <- sapply(colnames(data), fname_encode)
   # forward options using x
   x = list(
-    dataSource = jsonlite::toJSON(data, pretty=TRUE),
-    rawFields = raw_fields(data, columnSpecs),
+    dataSource = jsonlite::toJSON(data),
+    rawFields = rawFields,
     i18nLang = lang,
     hideDataSourceConfig = TRUE
   )

@@ -1,3 +1,5 @@
+library(openssl)
+
 raw_fields <- function(df, columnSpecs = list()) {
   validate_columnSpecs(columnSpecs)
   cols <- colnames(df)
@@ -12,7 +14,7 @@ infer_prop <- function(col, i = NULL, df, columnSpecs = list()) {
   semantic_type <- ifelse((col %in% names(columnSpecs)), columnSpecs[[col]]$semanticType, infer_semantic(s))
   analytic_type <- ifelse((col %in% names(columnSpecs)), columnSpecs[[col]]$analyticalType, infer_analytic(s))
   prop <- list(
-    fid = col,
+    fid = fname_encode(col),
     name = col,
     semanticType = semantic_type,
     analyticType = analytic_type
@@ -73,5 +75,20 @@ validate_columnSpecs <- function(columnSpecs) {
     if (!(columnSpecs[[column]]$semanticType %in% acceptable_semanticTypes)) {
       stop(paste0("The 'semanticType' for '", column, "' is invalid. It should be one of 'quantitative', 'temporal', 'nominal', or 'ordinal'."))
     }
+  }
+}
+
+fname_encode <- function(fname) {
+  # Convert fname to base64
+  return(base64_encode(charToRaw(as.character(fname))))
+}
+
+fname_decode <- function(fname) {
+  # Convert base64 back to string
+  decoded <- rawToChar(base64_decode(fname))
+  if (grepl("_", decoded)) {
+    return(unlist(strsplit(decoded, "_"))[1])
+  } else {
+    return(decoded)
   }
 }
