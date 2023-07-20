@@ -1,6 +1,6 @@
 Package: GWalkR
 Title: Interactive Exploratory Data Analysis Tool
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: c(
     person("Yue", "Yu", , "yyubv@connect.ust.hk", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-9302-0793")),
