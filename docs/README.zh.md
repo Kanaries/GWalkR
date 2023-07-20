@@ -5,7 +5,7 @@
 ![](https://img.shields.io/github/actions/workflow/status/kanaries/GWalkR/web-app-build.yml?style=flat-square)
 ![](https://img.shields.io/github/license/kanaries/GWalkR?style=flat-square)
 [![](https://img.shields.io/badge/twitter-kanaries_data-03A9F4?style=flat-square&logo=twitter)](https://twitter.com/kanaries_data)
-[![](https://img.shields.io/discord/987366424634884096?color=%237289da&label=Discord&logo=discord&logoColor=white&style=flat-square)](https://discord.gg/WWHraZ8SeV)
+[![](https://img.shields.io/discord/987366424634884096?color=%237289da&label=Discord&logo=discord&logoColor=white&style=flat-square)](https://discord.com/invite/WWHraZ8SeV)
 
 一行代码，开启您在R中的数据探索之旅！
 
@@ -27,12 +27,12 @@
 如果您已在R中安装了`devtools`，您可以在脚本中运行以下R代码来下载。
 
 ```R
-devtools::install_url("https://kanaries-app.s3.ap-northeast-1.amazonaws.com/oss/gwalkr/GWalkR_0.1.0.tar.gz")
+devtools::install_url("https://kanaries-app.s3.ap-northeast-1.amazonaws.com/oss/gwalkr/GWalkR_latest.tar.gz")
 ```
 
 #### 通过下载 .tar.gz 文件包安装
 
-或者，从[这个链接](https://kanaries-app.s3.ap-northeast-1.amazonaws.com/oss/gwalkr/GWalkR_0.1.0.tar.gz)中下载包 GWalkR_0.1.0.tar.gz。
+或者，从[这个链接](https://kanaries-app.s3.ap-northeast-1.amazonaws.com/oss/gwalkr/GWalkR_latest.tar.gz)中下载包 GWalkR_latest.tar.gz。
 打开 R Studio，点击 "Packages" 窗口中的 "Install"，然后在 "Install from" 中选择 "Package Archive File (.tgz; .tar.gz)"。然后，选择您的文件系统中的下载好的包，最后点击"Install"。
 
 #### 通过 CRAN 安装

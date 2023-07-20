@@ -16,6 +16,8 @@
 #'   "age" = list(analyticalType = "measure", semanticType = "quantitative")
 #' )}
 #'
+#' @return An \code{htmlwidget} object that can be rendered in R environments
+#'
 #' @examples
 #' data(mtcars)
 #' gwalkr(mtcars)
@@ -60,7 +62,27 @@ gwalkr <- function(data, lang = "en", columnSpecs = list()) {
 #' @name gwalkr-shiny
 #'
 #' @export
-gwalkrOutput <- function(outputId, width = '100%', height = '400px'){
+#' @examples # !formatR
+#' library(GWalkR)
+#' library(shiny)
+#' data(mtcars)
+#' app <- shinyApp(
+#'   ui = fluidPage(
+#'     titlePanel("Explore the data here: "),
+#'     gwalkrOutput("mygraph")
+#'   ),
+#'   server = function(input, output, session) {
+#'     output$mygraph = renderGwalkr(
+#'       gwalkr(mtcars)
+#'     )
+#'   }
+#' )
+#' \donttest{if (interactive()) app}
+#' @return \itemize{
+#'   \item \code{gwalkrOutput}: A \code{shinyWidgetOutput} object for the root HTML element.
+#'   \item \code{renderGwalkr}: A server-side function to help Shiny display the GWalkR visualization.
+#' }
+gwalkrOutput <- function(outputId, width = '100%', height = '100%'){
   htmlwidgets::shinyWidgetOutput(outputId, 'gwalkr', width, height, package = 'GWalkR')
 }
 

@@ -6,7 +6,7 @@
 \alias{renderGwalkr}
 \title{Shiny bindings for gwalkr}
 \usage{
-gwalkrOutput(outputId, width = "100\%", height = "400px")
+gwalkrOutput(outputId, width = "100\%", height = "100\%")
 
 renderGwalkr(expr, env = parent.frame(), quoted = FALSE)
 }
@@ -24,7 +24,31 @@ string and have \code{'px'} appended.}
 \item{quoted}{Is \code{expr} a quoted expression (with \code{quote()})? This
 is useful if you want to save an expression in a variable.}
 }
+\value{
+\itemize{
+\item \code{gwalkrOutput}: A \code{shinyWidgetOutput} object for the root HTML element.
+\item \code{renderGwalkr}: A server-side function to help Shiny display the GWalkR visualization.
+}
+}
 \description{
 Output and render functions for using gwalkr within Shiny
 applications and interactive Rmd documents.
+}
+\examples{
+# !formatR
+library(GWalkR)
+library(shiny)
+data(mtcars)
+app <- shinyApp(
+  ui = fluidPage(
+    titlePanel("Explore the data here: "),
+    gwalkrOutput("mygraph")
+  ),
+  server = function(input, output, session) {
+    output$mygraph = renderGwalkr(
+      gwalkr(mtcars)
+    )
+  }
+)
+\donttest{if (interactive()) app}
 }

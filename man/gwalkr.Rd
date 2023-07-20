@@ -20,6 +20,8 @@ only be one of "measure" or "dimension". \code{semanticType} can only be one of
   "gender" = list(analyticalType = "dimension", semanticType = "nominal"),
   "age" = list(analyticalType = "measure", semanticType = "quantitative")
 )}}
+\value{
+An \code{htmlwidget} object that can be rendered in R environments
 }
 \description{
 Use this function to create a GWalkR interface from a given data frame in your "Viewer" window, and start your data exploration! Please make sure the width and the height of your "Viewer" window are large enough.

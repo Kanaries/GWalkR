@@ -1,4 +1,4 @@
-[English](README.md) | [中文](./docs/README.zh.md)
+[English](README.md) | [中文](docs/README.zh.md)
 
 <img src="docs/img/hex_logo.png" align="right" alt="logo" width="120" height = "139" style = "border: none; float: right;">
 
@@ -7,7 +7,7 @@
 ![](https://img.shields.io/github/actions/workflow/status/kanaries/GWalkR/web-app-build.yml?style=flat-square)
 ![](https://img.shields.io/github/license/kanaries/GWalkR?style=flat-square)
 [![](https://img.shields.io/badge/twitter-kanaries_data-03A9F4?style=flat-square&logo=twitter)](https://twitter.com/kanaries_data)
-[![](https://img.shields.io/discord/987366424634884096?color=%237289da&label=Discord&logo=discord&logoColor=white&style=flat-square)](https://discord.gg/WWHraZ8SeV)
+[![](https://img.shields.io/discord/987366424634884096?color=%237289da&label=Discord&logo=discord&logoColor=white&style=flat-square)](https://discord.com/invite/WWHraZ8SeV)
 
 Start Exploratory Data Analysis (EDA) in R with a Single Line of Code!
 [GWalkR](https://github.com/Kanaries/GWalkR) is an interactive Exploratory Data Analysis (EDA) Tool in R.
@@ -27,12 +27,12 @@ It can simplify your R data analysis and data visualization workflow, by turning
 If you have `devtools` installed in R, you can run the following R code to install.
 
 ```R
-devtools::install_url("https://kanaries-app.s3.ap-northeast-1.amazonaws.com/oss/gwalkr/GWalkR_0.1.0.tar.gz")
+devtools::install_url("https://kanaries-app.s3.ap-northeast-1.amazonaws.com/oss/gwalkr/GWalkR_latest.tar.gz")
 ```
 
 #### Through Package Archive File (.tar.gz)
 
-Alternatively, download the package archive file `GWalkR_0.1.0.tar.gz` from [this link](https://kanaries-app.s3.ap-northeast-1.amazonaws.com/oss/gwalkr/GWalkR_0.1.0.tar.gz).
+Alternatively, download the package archive file `GWalkR_latest.tar.gz` from [this link](https://kanaries-app.s3.ap-northeast-1.amazonaws.com/oss/gwalkr/GWalkR_latest.tar.gz).
 Open R Studio, click "Install" in the "Packages" window, and select "Package Archive File (.tgz; .tar.gz)" in the "Install from". Then, select the archive in your file system and click "Install".
 
 #### Through CRAN
