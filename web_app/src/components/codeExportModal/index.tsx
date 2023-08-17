@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import Modal from "../modal";
 import { observer } from "mobx-react-lite";
 import DefaultButton from "../button/default";
-import { encodeSpec } from "../../utils/graphicWalkerParser";
 
 import type { IGlobalStore } from "@kanaries/graphic-walker/dist/store";
-import type { IVisSpec } from "@kanaries/graphic-walker/dist/interfaces";
 
 interface ICodeExport {
     globalStore: React.MutableRefObject<IGlobalStore | null>;
@@ -14,12 +12,12 @@ interface ICodeExport {
 }
 
 const CodeExport: React.FC<ICodeExport> = observer((props) => {
-    const [code, setCode] = useState<IVisSpec[]>([]);
+    const [code, setCode] = useState<string>("");
 
     useEffect(() => {
         if (props.open) {
             const res = props.globalStore.current?.vizStore.exportViewSpec();
-            if (res) setCode(res);
+            if (res) setCode(JSON.stringify(res));
         }
     }, [props.open]);
 
@@ -34,7 +32,7 @@ const CodeExport: React.FC<ICodeExport> = observer((props) => {
                 <h1 className="mb-4 font-bold text-base">Config Export</h1>
                 <div className="text-sm max-h-64 overflow-auto w-full">
                     <code className="font-mono text-xs whitespace-nowrap w-full">
-                        visConfig &lt;- '{JSON.stringify(JSON.parse(encodeSpec(code)))}'
+                        visConfig &lt;- '{code}'
                         <br />
                         gwalkr(data="name of your data frame", visConfig=visConfig)
                     </code>
