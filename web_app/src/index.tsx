@@ -4,11 +4,12 @@ import { observer } from "mobx-react-lite";
 import { IAppProps } from "./interfaces";
 import { GraphicWalker } from "@kanaries/graphic-walker";
 import type { IGlobalStore } from "@kanaries/graphic-walker/dist/store";
-import type { IDataSetInfo, IVisSpec } from "@kanaries/graphic-walker/dist/interfaces";
+import type { IDataSetInfo, IMutField, IRow, IVisSpec } from "@kanaries/graphic-walker/dist/interfaces";
 import type { IStoInfo } from "@kanaries/graphic-walker/dist/utils/save";
 import { getExportTool } from "./tools/exportTool";
 import CodeExportModal from "./components/codeExportModal";
-import "./index.css";
+import { StyleSheetManager } from 'styled-components';
+import tailwindStyle from 'tailwindcss/tailwind.css?inline'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const App: React.FC<IAppProps> = observer((propsIn) => {
@@ -19,36 +20,40 @@ const App: React.FC<IAppProps> = observer((propsIn) => {
     }, []);
     const [exportOpen, setExportOpen] = useState(false);
 
-    React.useEffect(() => {
+    const setData = (data?: IRow[], rawFields?: IMutField[]) => {
         if (specList.length !== 0) {
-            storeRef?.current?.vizStore?.importStoInfo({
-                dataSources: [
-                    {
-                        id: "dataSource-0",
-                        data: dataSource,
-                    },
-                ],
-                datasets: [
-                    {
-                        id: "dataset-0",
-                        name: "DataSet",
-                        rawFields: props.rawFields,
-                        dsId: "dataSource-0",
-                    },
-                ],
-                specList,
-            } as IStoInfo);
+            setTimeout(() => {
+                storeRef?.current?.vizStore?.importStoInfo({
+                    dataSources: [
+                        {
+                            id: "dataSource-0",
+                            data: data,
+                        },
+                    ],
+                    datasets: [
+                        {
+                            id: "dataset-0",
+                            name: "DataSet",
+                            rawFields: rawFields,
+                            dsId: "dataSource-0",
+                        },
+                    ],
+                    specList,
+                } as IStoInfo)
+            }, 1);
         } else {
             storeRef?.current?.commonStore?.updateTempSTDDS({
                 name: "Dataset",
-                rawFields: props.rawFields,
-                dataSource: dataSource,
+                rawFields: rawFields,
+                dataSource: data,
             } as IDataSetInfo);
             storeRef?.current?.commonStore?.commitTempDS();
         }
-    }, [storeRef, dataSource, props.rawFields, props.visSpec, specList]);
+    }
 
-    props.storeRef = storeRef;
+    React.useEffect(() => {
+        setData(dataSource, props.rawFields)
+    }, []);
 
     const exportTool = getExportTool(setExportOpen);
 
@@ -60,9 +65,10 @@ const App: React.FC<IAppProps> = observer((propsIn) => {
     };
     return (
         <React.StrictMode>
-            <div style={{ height: "100%", width: "100%", overflowY: "scroll" }}>
+            <div className="h-full w-full overflow-y-scroll font-sans">
+            {/* <div style={{ height: "100%", width: "100%", overflowY: "scroll" }}> */}
                 <CodeExportModal open={exportOpen} setOpen={setExportOpen} globalStore={storeRef} />
-                <GraphicWalker {...props} toolbar={toolbarConfig} />
+                <GraphicWalker {...props} storeRef={storeRef} toolbar={toolbarConfig} />
             </div>
         </React.StrictMode>
     );
@@ -71,8 +77,19 @@ const App: React.FC<IAppProps> = observer((propsIn) => {
 const GWalker = (props: IAppProps, id: string) => {
     const container = document.getElementById(id);
     if (container) {
-        const root = createRoot(container);
-        root.render(<App {...props} />);
+        const shadowRoot = container.attachShadow({ mode: 'open' });
+
+        // Add Tailwind CSS to the shadow root
+        const styleElement = document.createElement('style');
+        styleElement.textContent = tailwindStyle;
+        shadowRoot.appendChild(styleElement);
+
+        const root = createRoot(shadowRoot);
+        root.render(
+            <StyleSheetManager target={shadowRoot}>
+                <App {...props} />
+            </StyleSheetManager>
+        );
     }
     // If you want to execute GWalker after the document has loaded, you can do it here.
     // But remember, you will need to provide the 'props' and 'id' parameters.

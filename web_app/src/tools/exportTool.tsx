@@ -6,7 +6,7 @@ import type { ToolbarButtonItem } from "@kanaries/graphic-walker/dist/components
 
 export function getExportTool(setExportOpen: React.Dispatch<React.SetStateAction<boolean>>): ToolbarButtonItem {
     return {
-        key: "export_code",
+        key: "export_gwalkr_code",
         label: "export config",
         icon: (iconProps?: any) => <CodeBracketSquareIcon {...iconProps} />,
         onClick: () => {
