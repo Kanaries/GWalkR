@@ -1,4 +1,4 @@
-[English](README.md) | [中文](docs/README.zh.md)
+[English](README.md) | [中文](https://github.com/Kanaries/GWalkR/blob/main/docs/README.zh.md)
 
 <img src="docs/img/hex_logo.png" align="right" alt="logo" width="120" height = "139" style = "border: none; float: right;">
 
@@ -52,11 +52,8 @@ gwalkr(iris)
 
 ## Main Features
 1. 🧑‍🎨 Turn a data frame into charts through simple drag-and-drop operations.
-2. 🤖️ [coming soon] Work with AI copilot in R: Let AI generate explorable charts for you!
+2. ✨ Empower your RMarkdown: Showcase your data insights with editable and explorable charts on a webpage ([example](https://bruceyyu.github.io/show/tidytuesday_etymology.nb.html))!
+3. 🤖️ [coming soon] Work with AI copilot in R: Let AI generate explorable charts for you!
 
 
 https://github.com/Kanaries/GWalkR/assets/33870780/4a3a9f9c-ff17-484b-9503-af82bd609b99
-
-
-3. ✨ [coming soon] Integration with Shiny app: Showcase your data insights with editable and explorable charts on a webpage!
-
