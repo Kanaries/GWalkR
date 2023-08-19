@@ -2,6 +2,8 @@
 
 # GWalkR: 一行代码将数据集转化为交互式可视化分析工具
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/GWalkR)](https://CRAN.R-project.org/package=GWalkR)
 ![](https://img.shields.io/github/actions/workflow/status/kanaries/GWalkR/web-app-build.yml?style=flat-square)
 ![](https://img.shields.io/github/license/kanaries/GWalkR?style=flat-square)
 [![](https://img.shields.io/badge/twitter-kanaries_data-03A9F4?style=flat-square&logo=twitter)](https://twitter.com/kanaries_data)
@@ -22,6 +24,12 @@
 
 ### 安装 GWalkR
 
+#### 通过 CRAN 安装 （推荐）
+
+```R
+install.packages("GWalkR")
+```
+
 #### 通过运行R脚本安装
 
 如果您已在R中安装了`devtools`，您可以在脚本中运行以下R代码来下载。
@@ -34,11 +42,6 @@ devtools::install_url("https://kanaries-app.s3.ap-northeast-1.amazonaws.com/oss/
 
 或者，从[这个链接](https://kanaries-app.s3.ap-northeast-1.amazonaws.com/oss/gwalkr/GWalkR_latest.tar.gz)中下载包 GWalkR_latest.tar.gz。
 打开 R Studio，点击 "Packages" 窗口中的 "Install"，然后在 "Install from" 中选择 "Package Archive File (.tgz; .tar.gz)"。然后，选择您的文件系统中的下载好的包，最后点击"Install"。
-
-#### 通过 CRAN 安装
-
-即将支持。敬请期待！
-
 
 ### 用一行代码开始您的数据探索吧
 

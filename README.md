@@ -4,6 +4,8 @@
 
 # GWalkR: Your One-Stop R Package for Exploratory Data Analysis with Visualization
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/GWalkR)](https://CRAN.R-project.org/package=GWalkR)
 ![](https://img.shields.io/github/actions/workflow/status/kanaries/GWalkR/web-app-build.yml?style=flat-square)
 ![](https://img.shields.io/github/license/kanaries/GWalkR?style=flat-square)
 [![](https://img.shields.io/badge/twitter-kanaries_data-03A9F4?style=flat-square&logo=twitter)](https://twitter.com/kanaries_data)
@@ -22,6 +24,12 @@ It can simplify your R data analysis and data visualization workflow, by turning
 
 ### Setup GWalkR
 
+#### Through CRAN (Recommended)
+
+```R
+install.packages("GWalkR")
+```
+
 #### Through Running R Script
 
 If you have `devtools` installed in R, you can run the following R code to install.
@@ -34,11 +42,6 @@ devtools::install_url("https://kanaries-app.s3.ap-northeast-1.amazonaws.com/oss/
 
 Alternatively, download the package archive file `GWalkR_latest.tar.gz` from [this link](https://kanaries-app.s3.ap-northeast-1.amazonaws.com/oss/gwalkr/GWalkR_latest.tar.gz).
 Open R Studio, click "Install" in the "Packages" window, and select "Package Archive File (.tgz; .tar.gz)" in the "Install from". Then, select the archive in your file system and click "Install".
-
-#### Through CRAN
-
-To be supported soon. Stay tuned!
-
 
 ### Start Your Data Exploration in a Single Line of Code
 
