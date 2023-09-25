@@ -1,4 +1,4 @@
-import type { IGWProps } from '@kanaries/graphic-walker/dist/App'
+import type { IGWProps } from "@kanaries/graphic-walker/dist/App";
 
 export interface IAppProps extends IGWProps {
     id: string;

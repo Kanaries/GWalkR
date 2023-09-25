@@ -14,7 +14,7 @@ interface ICodeExport {
 
 const downloadFile = (data: string) => {
     const fileName = "config";
-    const json = data
+    const json = data;
     const blob = new Blob([json], { type: "application/json" });
     const href = URL.createObjectURL(blob);
     const link = document.createElement("a");

@@ -8,8 +8,8 @@ import type { IDataSetInfo, IMutField, IRow, IVisSpec } from "@kanaries/graphic-
 import type { IStoInfo } from "@kanaries/graphic-walker/dist/utils/save";
 import { getExportTool } from "./tools/exportTool";
 import CodeExportModal from "./components/codeExportModal";
-import { StyleSheetManager } from 'styled-components';
-import tailwindStyle from 'tailwindcss/tailwind.css?inline'
+import { StyleSheetManager } from "styled-components";
+import tailwindStyle from "tailwindcss/tailwind.css?inline";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const App: React.FC<IAppProps> = observer((propsIn) => {
@@ -39,7 +39,7 @@ const App: React.FC<IAppProps> = observer((propsIn) => {
                         },
                     ],
                     specList,
-                } as IStoInfo)
+                } as IStoInfo);
             }, 1);
         } else {
             storeRef?.current?.commonStore?.updateTempSTDDS({
@@ -49,10 +49,10 @@ const App: React.FC<IAppProps> = observer((propsIn) => {
             } as IDataSetInfo);
             storeRef?.current?.commonStore?.commitTempDS();
         }
-    }
+    };
 
     React.useEffect(() => {
-        setData(dataSource, props.rawFields)
+        setData(dataSource, props.rawFields);
     }, []);
 
     const exportTool = getExportTool(setExportOpen);
@@ -66,7 +66,7 @@ const App: React.FC<IAppProps> = observer((propsIn) => {
     return (
         <React.StrictMode>
             <div className="h-full w-full overflow-y-scroll font-sans">
-            {/* <div style={{ height: "100%", width: "100%", overflowY: "scroll" }}> */}
+                {/* <div style={{ height: "100%", width: "100%", overflowY: "scroll" }}> */}
                 <CodeExportModal open={exportOpen} setOpen={setExportOpen} globalStore={storeRef} />
                 <GraphicWalker {...props} storeRef={storeRef} toolbar={toolbarConfig} />
             </div>
@@ -77,10 +77,10 @@ const App: React.FC<IAppProps> = observer((propsIn) => {
 const GWalker = (props: IAppProps, id: string) => {
     const container = document.getElementById(id);
     if (container) {
-        const shadowRoot = container.attachShadow({ mode: 'open' });
+        const shadowRoot = container.attachShadow({ mode: "open" });
 
         // Add Tailwind CSS to the shadow root
-        const styleElement = document.createElement('style');
+        const styleElement = document.createElement("style");
         styleElement.textContent = tailwindStyle;
         shadowRoot.appendChild(styleElement);
 
