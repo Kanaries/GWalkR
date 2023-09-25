@@ -1,11 +1,11 @@
 Package: GWalkR
 Title: Interactive Exploratory Data Analysis Tool
-Version: 0.1.2
+Version: 0.1.3
 Authors@R: c(
-    person("Yue", "Yu", , "yyubv@connect.ust.hk", role = c("aut", "cre"),
+    person("Yue", "Yu", , "yue.yu@connect.ust.hk", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-9302-0793")),
     person("Kanaries Data Inc.", role = c("cph", "fnd")))
-Maintainer: Yue Yu <yyubv@connect.ust.hk>
+Maintainer: Yue Yu <yue.yu@connect.ust.hk>
 Description: Simplify your R data analysis and data visualization workflow by turning your data frame into an interactive 'Tableau'-like interface, leveraging the 'graphic-walker' JavaScript library and the 'htmlwidgets' package.
 License: Apache License (>= 2)
 Encoding: UTF-8
