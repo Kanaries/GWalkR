@@ -200,6 +200,13 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.22.5"
 
+"@babel/runtime@^7.12.5":
+  version "7.22.15"
+  resolved "https://registry.npmmirror.com/@babel/runtime/-/runtime-7.22.15.tgz#38f46494ccf6cf020bd4eed7124b425e83e523b8"
+  integrity sha512-T0O+aa+4w0u06iNmapipJXMV4HoUir03hpx3/YqXXhu9xim3w+dVphjFWl1OH8NbZHw5Lbm9k45drDkgq2VNNA==
+  dependencies:
+    regenerator-runtime "^0.14.0"
+
 "@babel/runtime@^7.14.5", "@babel/runtime@^7.15.4", "@babel/runtime@^7.17.2", "@babel/runtime@^7.19.0", "@babel/runtime@^7.9.2":
   version "7.22.6"
   resolved "https://registry.npmmirror.com/@babel/runtime/-/runtime-7.22.6.tgz#57d64b9ae3cff1d67eb067ae117dac087f5bd438"
@@ -481,10 +488,10 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@kanaries/graphic-walker@^0.4.3":
-  version "0.4.3"
-  resolved "https://registry.npmmirror.com/@kanaries/graphic-walker/-/graphic-walker-0.4.3.tgz#e30e8a5ef85781433acadeada828726acf68fb27"
-  integrity sha512-r+c2bipTqlzPGckrYYNDbYmYi8DxBRJrjA4J1uNsckeb0d047ZT9cmQwqawtJPdxDpuxWnkFK7+oFYX6LcSRew==
+"@kanaries/graphic-walker@^0.4.13":
+  version "0.4.13"
+  resolved "https://registry.npmmirror.com/@kanaries/graphic-walker/-/graphic-walker-0.4.13.tgz#a03d400f4774974454e1525a2e3a3d879e31eac6"
+  integrity sha512-8Mn8rQjAuGgnEDN60VgxAlV1aVMqjJ/UdbRdtQkaxwPKdSOQ+DTMoFu/uccFQUaotT77eWJMLIvc06l+R+mpRw==
   dependencies:
     "@headlessui/react" "^1.7.12"
     "@heroicons/react" "^2.0.8"
@@ -492,6 +499,7 @@
     "@kanaries/web-data-loader" "^0.1.7"
     "@tailwindcss/forms" "^0.5.4"
     autoprefixer "^10.3.5"
+    canvas-size "^1.2.6"
     d3-format "^3.1.0"
     d3-scale "^4.0.2"
     d3-time-format "^4.1.0"
@@ -505,6 +513,8 @@
     postcss "^8.3.7"
     postinstall-postinstall "^2.1.0"
     re-resizable "^6.9.8"
+    react-dropzone "^14.2.3"
+    react-error-boundary "^4.0.11"
     react-i18next "^11.18.6"
     react-leaflet "^4.2.1"
     react-shadow "^20.0.0"
@@ -872,6 +882,11 @@ array-union@^2.1.0:
   resolved "https://registry.npmmirror.com/array-union/-/array-union-2.1.0.tgz#b798420adbeb1de828d84acd8a2e23d3efe85e8d"
   integrity sha512-HGyxoOTYUyCM6stUe6EJgnd4EoewAI7zMdfqO+kGjnlZmBDz/cR5pf8r/cR4Wq60sL/p0IkcjUEEPwS3GFrIyw==
 
+attr-accept@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.npmmirror.com/attr-accept/-/attr-accept-2.2.2.tgz#646613809660110749e92f2c10833b70968d929b"
+  integrity sha512-7prDjvt9HmqiZ0cl5CRjtS84sEyhsHP2coDkaZKRKVfCDo9s7iw7ChVmar78Gu9pC4SoR/28wFu/G5JJhTnqEg==
+
 autoprefixer@^10.3.5, autoprefixer@^10.4.14:
   version "10.4.14"
   resolved "https://registry.npmmirror.com/autoprefixer/-/autoprefixer-10.4.14.tgz#e28d49902f8e759dd25b153264e862df2705f79d"
@@ -961,6 +976,11 @@ caniuse-lite@^1.0.30001464, caniuse-lite@^1.0.30001503:
   version "1.0.30001514"
   resolved "https://registry.npmmirror.com/caniuse-lite/-/caniuse-lite-1.0.30001514.tgz#e2a7e184a23affc9367b7c8d734e7ec4628c1309"
   integrity sha512-ENcIpYBmwAAOm/V2cXgM7rZUrKKaqisZl4ZAI520FIkqGXUxJjmaIssbRW5HVVR5tyV6ygTLIm15aU8LUmQSaQ==
+
+canvas-size@^1.2.6:
+  version "1.2.6"
+  resolved "https://registry.npmmirror.com/canvas-size/-/canvas-size-1.2.6.tgz#1eaa6b56167cf2a70fa4021680829d2073b45706"
+  integrity sha512-x2iVHOrZ5x9V0Hwx6kBz+Yxf/VCAII+jrD6WLjJbytJLozHq/oDJjEva432Os0eHxWMFR0vYlLJwTr6QxyxQqw==
 
 chalk@^2.0.0:
   version "2.4.2"
@@ -1495,6 +1515,13 @@ file-entry-cache@^6.0.1:
   integrity sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==
   dependencies:
     flat-cache "^3.0.4"
+
+file-selector@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.npmmirror.com/file-selector/-/file-selector-0.6.0.tgz#fa0a8d9007b829504db4d07dd4de0310b65287dc"
+  integrity sha512-QlZ5yJC0VxHxQQsQhXvBaC7VRJ2uaxTf+Tfpu4Z/OcVQJVpZO+DGU0rkoVW5ce2SccxugvpBJoMvUs59iILYdw==
+  dependencies:
+    tslib "^2.4.0"
 
 fill-range@^7.0.1:
   version "7.0.1"
@@ -2168,7 +2195,7 @@ prelude-ls@^1.2.1:
   resolved "https://registry.npmmirror.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
 
-prop-types@^15.7.2:
+prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.npmmirror.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -2211,6 +2238,22 @@ react-dom@^18.2.0:
   dependencies:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
+
+react-dropzone@^14.2.3:
+  version "14.2.3"
+  resolved "https://registry.npmmirror.com/react-dropzone/-/react-dropzone-14.2.3.tgz#0acab68308fda2d54d1273a1e626264e13d4e84b"
+  integrity sha512-O3om8I+PkFKbxCukfIR3QAGftYXDZfOE2N1mr/7qebQJHs7U+/RSL/9xomJNpRg9kM5h9soQSdf0Gc7OHF5Fug==
+  dependencies:
+    attr-accept "^2.2.2"
+    file-selector "^0.6.0"
+    prop-types "^15.8.1"
+
+react-error-boundary@^4.0.11:
+  version "4.0.11"
+  resolved "https://registry.npmmirror.com/react-error-boundary/-/react-error-boundary-4.0.11.tgz#36bf44de7746714725a814630282fee83a7c9a1c"
+  integrity sha512-U13ul67aP5DOSPNSCWQ/eO0AQEYzEFkVljULQIjMV0KlffTAhxuDoBKdO0pb/JZ8mDhMKFZ9NZi0BmLGUiNphw==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
 
 react-i18next@^11.18.6:
   version "11.18.6"
@@ -2293,6 +2336,11 @@ regenerator-runtime@^0.13.11:
   version "0.13.11"
   resolved "https://registry.npmmirror.com/regenerator-runtime/-/regenerator-runtime-0.13.11.tgz#f6dca3e7ceec20590d07ada785636a90cdca17f9"
   integrity sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==
+
+regenerator-runtime@^0.14.0:
+  version "0.14.0"
+  resolved "https://registry.npmmirror.com/regenerator-runtime/-/regenerator-runtime-0.14.0.tgz#5e19d68eb12d486f797e15a3c6a918f7cec5eb45"
+  integrity sha512-srw17NI0TUWHuGa5CFGGmhfNIeja30WMBfbslPNhf6JrqQlLN5gcrvig1oqPxiVaXb0oW0XRKtH6Nngs5lKCIA==
 
 require-directory@^2.1.1:
   version "2.1.1"
@@ -2637,6 +2685,11 @@ tslib@^2.1.0, tslib@^2.5.0:
   version "2.6.0"
   resolved "https://registry.npmmirror.com/tslib/-/tslib-2.6.0.tgz#b295854684dbda164e181d259a22cd779dcd7bc3"
   integrity sha512-7At1WUettjcSRHXCyYtTselblcHl9PJFFVKiCAy/bY97+BPZXSQ2wbq0P9s8tK2G7dFQfNnlJnPAiArVBVBsfA==
+
+tslib@^2.4.0:
+  version "2.6.2"
+  resolved "https://registry.npmmirror.com/tslib/-/tslib-2.6.2.tgz#703ac29425e7b37cd6fd456e92404d46d1f3e4ae"
+  integrity sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==
 
 tslib@~2.5.0:
   version "2.5.3"

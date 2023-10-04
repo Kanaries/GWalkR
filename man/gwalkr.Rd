@@ -4,12 +4,21 @@
 \alias{gwalkr}
 \title{Create GWalkR Interface in "Viewer"}
 \usage{
-gwalkr(data, lang = "en", columnSpecs = list(), visConfig = NULL)
+gwalkr(
+  data,
+  lang = "en",
+  dark = "light",
+  columnSpecs = list(),
+  visConfig = NULL,
+  visConfigFile = NULL
+)
 }
 \arguments{
 \item{data}{A data frame to be visualized in the GWalkR. The data frame should not be empty.}
 
 \item{lang}{A character string specifying the language for the widget. Possible values are "en" (default), "ja", "zh".}
+
+\item{dark}{A character string specifying the dark mode preference. Possible values are "light" (default), "dark", "media".}
 
 \item{columnSpecs}{An optional list of lists to manually specify the types of some columns in the data frame.
 Each top level element in the list corresponds to a column, and the list assigned to each column should have
@@ -22,6 +31,8 @@ only be one of "measure" or "dimension". \code{semanticType} can only be one of
 )}}
 
 \item{visConfig}{An optional config string to reproduce your chart. You can copy the string by clicking "export config" button on the GWalkR interface.}
+
+\item{visConfigFile}{An optional config file path to reproduce your chart. You can download the file by clicking "export config" button then "download" button on the GWalkR interface.}
 }
 \value{
 An \code{htmlwidget} object that can be rendered in R environments
