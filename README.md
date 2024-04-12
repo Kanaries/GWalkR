@@ -25,39 +25,30 @@ It can simplify your R data analysis and data visualization workflow, by turning
 
 ### Setup GWalkR
 
-#### Through CRAN (Recommended)
-
 ```R
 install.packages("GWalkR")
+library(GWalkR)
 ```
-
-#### Through Running R Script
-
-If you have `devtools` installed in R, you can run the following R code to install.
-
-```R
-devtools::install_url("https://kanaries-app.s3.ap-northeast-1.amazonaws.com/oss/gwalkr/GWalkR_latest.tar.gz")
-```
-
-#### Through Package Archive File (.tar.gz)
-
-Alternatively, download the package archive file `GWalkR_latest.tar.gz` from [this link](https://kanaries-app.s3.ap-northeast-1.amazonaws.com/oss/gwalkr/GWalkR_latest.tar.gz).
-Open R Studio, click "Install" in the "Packages" window, and select "Package Archive File (.tgz; .tar.gz)" in the "Install from". Then, select the archive in your file system and click "Install".
 
 ### Start Your Data Exploration in a Single Line of Code
 
 ```R
-library(GWalkR)
 data(iris)
 gwalkr(iris)
 ```
 
-<img width="1437" alt="image" src="https://github.com/Bruceshark/GWalkR/assets/33870780/718d8ff6-4ad5-492d-9afb-c4ed67573f51">
-
 ## Main Features
-1. 🧑‍🎨 Turn a data frame into charts through simple drag-and-drop operations.
-2. ✨ Empower your RMarkdown: Showcase your data insights with editable and explorable charts on a webpage ([example](https://bruceyyu.github.io/show/tidytuesday_etymology.nb.html))!
-3. 🤖️ [coming soon] Work with AI copilot in R: Let AI generate explorable charts for you!
+### Get an overview of your data frame under 'Data' tab.
+<img width="700" alt="image" src="https://github.com/bruceyyu/GWalkR/assets/33870780/67131cfa-a25b-44ae-90a0-95902ea5edb1">
 
+### Creat data viz with simple drag-and-drop operations.
+<img width="700" alt="image" src="https://github.com/Bruceshark/GWalkR/assets/33870780/718d8ff6-4ad5-492d-9afb-c4ed67573f51">
 
-https://github.com/Kanaries/GWalkR/assets/33870780/4a3a9f9c-ff17-484b-9503-af82bd609b99
+### Find interesting data points? Brush them and zoom in!
+<img width="700" alt="image" src="https://github.com/bruceyyu/GWalkR/assets/33870780/8033885d-3699-4f50-84e1-2201b3846b5a">
+
+### Empower your R notebook (R Markdown).
+
+Showcase your data insights with editable and explorable charts on a webpage ([example](https://bruceyyu.github.io/show/tidytuesday_etymology.nb.html))!
+
+<img width="700" alt="image" src="https://github.com/bruceyyu/GWalkR/assets/33870780/4798367c-0dd4-4ad3-b25b-7ea48b79205a">
