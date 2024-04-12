@@ -1,59 +1,21 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
 import { observer } from "mobx-react-lite";
 import { IAppProps } from "./interfaces";
 import { GraphicWalker } from "@kanaries/graphic-walker";
-import type { IGlobalStore } from "@kanaries/graphic-walker/dist/store";
-import type { IDataSetInfo, IMutField, IRow, IVisSpec } from "@kanaries/graphic-walker/dist/interfaces";
-import type { IStoInfo } from "@kanaries/graphic-walker/dist/utils/save";
+import type { VizSpecStore } from '@kanaries/graphic-walker/store/visualSpecStore';
 import { getExportTool } from "./tools/exportTool";
 import CodeExportModal from "./components/codeExportModal";
 import { StyleSheetManager } from "styled-components";
 import tailwindStyle from "tailwindcss/tailwind.css?inline";
+import formatSpec from "./utils/formatSpec";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const App: React.FC<IAppProps> = observer((propsIn) => {
-    const { dataSource, ...props } = propsIn;
-    const storeRef = React.useRef<IGlobalStore>(null);
-    const specList: IVisSpec[] = useMemo(() => {
-        return props.visSpec ? (JSON.parse(props.visSpec) as IVisSpec[]) : [];
-    }, []);
+    const { dataSource, visSpec, rawFields, ...props } = propsIn;
+    const storeRef = React.useRef<VizSpecStore|null>(null);
+
+    const specList = visSpec ? formatSpec(JSON.parse(visSpec) as any[], rawFields) : undefined
     const [exportOpen, setExportOpen] = useState(false);
-
-    const setData = (data?: IRow[], rawFields?: IMutField[]) => {
-        if (specList.length !== 0) {
-            setTimeout(() => {
-                storeRef?.current?.vizStore?.importStoInfo({
-                    dataSources: [
-                        {
-                            id: "dataSource-0",
-                            data: data,
-                        },
-                    ],
-                    datasets: [
-                        {
-                            id: "dataset-0",
-                            name: "DataSet",
-                            rawFields: rawFields,
-                            dsId: "dataSource-0",
-                        },
-                    ],
-                    specList,
-                } as IStoInfo);
-            }, 1);
-        } else {
-            storeRef?.current?.commonStore?.updateTempSTDDS({
-                name: "Dataset",
-                rawFields: rawFields,
-                dataSource: data,
-            } as IDataSetInfo);
-            storeRef?.current?.commonStore?.commitTempDS();
-        }
-    };
-
-    React.useEffect(() => {
-        setData(dataSource, props.rawFields);
-    }, []);
 
     const exportTool = getExportTool(setExportOpen);
 
@@ -66,9 +28,8 @@ const App: React.FC<IAppProps> = observer((propsIn) => {
     return (
         <React.StrictMode>
             <div className="h-full w-full overflow-y-scroll font-sans">
-                {/* <div style={{ height: "100%", width: "100%", overflowY: "scroll" }}> */}
                 <CodeExportModal open={exportOpen} setOpen={setExportOpen} globalStore={storeRef} />
-                <GraphicWalker {...props} storeRef={storeRef} toolbar={toolbarConfig} />
+                <GraphicWalker {...props} storeRef={storeRef} data={dataSource} toolbar={toolbarConfig} fields={rawFields} chart={specList} />
             </div>
         </React.StrictMode>
     );

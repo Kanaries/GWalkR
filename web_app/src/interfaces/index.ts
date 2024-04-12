@@ -1,6 +1,6 @@
-import type { IGWProps } from "@kanaries/graphic-walker/dist/App";
+import type { IRow, IMutField } from '@kanaries/graphic-walker/interfaces'
 
-export interface IAppProps extends IGWProps {
+export interface IAppProps {
     id: string;
     version?: string;
     hashcode?: string;
@@ -8,4 +8,6 @@ export interface IAppProps extends IGWProps {
     env?: string;
     needLoadDatas?: boolean;
     specType?: string;
+    dataSource: IRow[];
+    rawFields: IMutField[];
 }

@@ -33,6 +33,9 @@ export default defineConfig((config: ConfigEnv) => {
       ... (config.mode === 'production') ? [CommonJs(), Terser()]: []
     ],
     resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "./src"),
+      },
       //dedupe: modulesNotToBundle,
     },
     build: {
