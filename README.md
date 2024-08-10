@@ -4,6 +4,7 @@
 
 # GWalkR: Your One-Stop R Package for Exploratory Data Analysis with Visualization
 
+[![arxiv](https://img.shields.io/badge/arXiv-2406.11637-b31b1b.svg)](https://arxiv.org/abs/2406.11637)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/GWalkR)](https://CRAN.R-project.org/package=GWalkR)
 ![](https://img.shields.io/github/actions/workflow/status/kanaries/GWalkR/web-app-build.yml?style=flat-square)
