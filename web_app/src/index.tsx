@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { observer } from "mobx-react-lite";
 import { IAppProps } from "./interfaces";
 import { GraphicWalker } from "@kanaries/graphic-walker";
-import type { VizSpecStore } from '@kanaries/graphic-walker/store/visualSpecStore';
+import type { VizSpecStore } from "@kanaries/graphic-walker/store/visualSpecStore";
 import { getExportTool } from "./tools/exportTool";
 import CodeExportModal from "./components/codeExportModal";
 import { StyleSheetManager } from "styled-components";
@@ -11,10 +11,10 @@ import tailwindStyle from "tailwindcss/tailwind.css?inline";
 import formatSpec from "./utils/formatSpec";
 
 const App: React.FC<IAppProps> = observer((propsIn) => {
-    const { dataSource, visSpec, rawFields, ...props } = propsIn;
-    const storeRef = React.useRef<VizSpecStore|null>(null);
+    const { dataSource, visSpec, rawFields, toolbarExclude, ...props } = propsIn;
+    const storeRef = React.useRef<VizSpecStore | null>(null);
 
-    const specList = visSpec ? formatSpec(JSON.parse(visSpec) as any[], rawFields) : undefined
+    const specList = visSpec ? formatSpec(JSON.parse(visSpec) as any[], rawFields) : undefined;
     const [exportOpen, setExportOpen] = useState(false);
 
     const exportTool = getExportTool(setExportOpen);
@@ -22,7 +22,7 @@ const App: React.FC<IAppProps> = observer((propsIn) => {
     const tools = [exportTool];
 
     const toolbarConfig = {
-        exclude: ["export_code"],
+        exclude: toolbarExclude ? [...toolbarExclude, "export_code"] : ["export_code"],
         extra: tools,
     };
     return (
@@ -35,7 +35,7 @@ const App: React.FC<IAppProps> = observer((propsIn) => {
     );
 });
 
-const GWalker = (props: IAppProps, id: string) => {
+const GWalkR = (props: IAppProps, id: string) => {
     const container = document.getElementById(id);
     if (container) {
         const shadowRoot = container.attachShadow({ mode: "open" });
@@ -52,10 +52,10 @@ const GWalker = (props: IAppProps, id: string) => {
             </StyleSheetManager>
         );
     }
-    // If you want to execute GWalker after the document has loaded, you can do it here.
+    // If you want to execute GWalkR after the document has loaded, you can do it here.
     // But remember, you will need to provide the 'props' and 'id' parameters.
-    // GWalker(someProps, someId);
+    // GWalkR(someProps, someId);
     // });
 };
 
-export default GWalker;
+export default GWalkR;

@@ -10,7 +10,7 @@ Description: Simplify your R data analysis and data visualization workflow by tu
 License: Apache License (>= 2)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 URL: https://github.com/Kanaries/GWalkR/
 BugReports: https://github.com/Kanaries/GWalkR/issues
 Imports: 
