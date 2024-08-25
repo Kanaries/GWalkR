@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@kanaries/graphic-walker": "^0.4.61",
+    "@kanaries/graphic-walker": "^0.4.70",
     "@rollup/plugin-commonjs": "^25.0.2",
     "@rollup/plugin-replace": "^5.0.2",
     "@rollup/plugin-terser": "^0.4.3",
