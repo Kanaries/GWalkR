@@ -53,3 +53,17 @@ gwalkr(iris)
 Showcase your data insights with editable and explorable charts on a webpage ([example](https://bruceyyu.github.io/show/tidytuesday_etymology.nb.html))!
 
 <img width="700" alt="image" src="https://github.com/bruceyyu/GWalkR/assets/33870780/4798367c-0dd4-4ad3-b25b-7ea48b79205a">
+
+## Development
+We encourage developers from the amazing open-source community to help improve this R package! 
+
+Because the built web library is not tracked by git, the source code here is not directly runnable. 
+Please follow the steps below to run the source code on your own device:
+
+1. Run `git clone https://github.com/Kanaries/GWalkR.git` to clone this repository.
+2. Go to `/web_app` and `yarn install`.
+3. You can now implement your features either in the web app by changing the TypeScript code, or in the R scripts under `/R`.
+4. Run `yarn run build` to build the web app, and make sure the built library can be found under `/inst/htmlwidgets/lib/`.
+5. In R Studio, run `devtools::load_all("{DIR_OF_GWALKR}")` to load the package (make sure you've removed the installed GWalkR from CRAN before that). 
+
+For more information about R package development, please refer to this book, [*R Packages*](https://r-pkgs.org/).

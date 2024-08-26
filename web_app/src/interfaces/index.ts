@@ -10,4 +10,5 @@ export interface IAppProps {
     specType?: string;
     dataSource: IRow[];
     rawFields: IMutField[];
+    toolbarExclude: string[];
 }

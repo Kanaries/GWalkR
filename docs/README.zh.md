@@ -25,32 +25,45 @@ status](https://www.r-pkg.org/badges/version/GWalkR)](https://CRAN.R-project.org
 
 ### 安装 GWalkR
 
-#### 通过 CRAN 安装 （推荐）
-
 ```R
 install.packages("GWalkR")
+library(GWalkR)
 ```
-
-#### 通过运行R脚本安装
-
-如果您已在R中安装了`devtools`，您可以在脚本中运行以下R代码来下载。
-
-```R
-devtools::install_url("https://kanaries-app.s3.ap-northeast-1.amazonaws.com/oss/gwalkr/GWalkR_latest.tar.gz")
-```
-
-#### 通过下载 .tar.gz 文件包安装
-
-或者，从[这个链接](https://kanaries-app.s3.ap-northeast-1.amazonaws.com/oss/gwalkr/GWalkR_latest.tar.gz)中下载包 GWalkR_latest.tar.gz。
-打开 R Studio，点击 "Packages" 窗口中的 "Install"，然后在 "Install from" 中选择 "Package Archive File (.tgz; .tar.gz)"。然后，选择您的文件系统中的下载好的包，最后点击"Install"。
 
 ### 用一行代码开始您的数据探索吧
 
 ```R
-library(GWalkR)
 data(iris)
 gwalkr(iris)
 ```
 
 <img width="1437" alt="image" src="https://github.com/Bruceshark/GWalkR/assets/33870780/718d8ff6-4ad5-492d-9afb-c4ed67573f51">
 
+## 主要功能
+### 查看数据概览
+<img width="700" alt="image" src="https://github.com/bruceyyu/GWalkR/assets/33870780/67131cfa-a25b-44ae-90a0-95902ea5edb1">
+
+### 通过简单的拖拽操作创建数据可视化
+<img width="700" alt="image" src="https://github.com/Bruceshark/GWalkR/assets/33870780/718d8ff6-4ad5-492d-9afb-c4ed67573f51">
+
+### 发现有趣的数据点？使用笔刷功能进一步分析！
+<img width="700" alt="image" src="https://github.com/bruceyyu/GWalkR/assets/33870780/8033885d-3699-4f50-84e1-2201b3846b5a">
+
+### 为R Notebook（如R Markdown）提供强大支持
+
+在网页上展示可编辑和交互的图表，让您的数据洞察更加生动 [(示例)]((https://bruceyyu.github.io/show/tidytuesday_etymology.nb.html))。
+
+<img width="700" alt="image" src="https://github.com/bruceyyu/GWalkR/assets/33870780/4798367c-0dd4-4ad3-b25b-7ea48b79205a">
+
+## 开发指南
+我们欢迎来自开源社区的开发者帮助改进此R包！
+
+由于构建的Web库不被Git追踪，这里的源代码无法直接运行。请按以下步骤在您的设备上运行源代码：
+
+1. 运行 `git clone https://github.com/Kanaries/GWalkR.git` 克隆此仓库。
+2. 进入 `/web_app` 并运行 `yarn install`。
+3. 您可以在TypeScript代码的Web应用或 `/R` 目录下的R脚本中实现您的功能。
+4. 运行 `yarn run build` 构建Web应用，并确保构建后的库位于 `/inst/htmlwidgets/lib/` 下。
+5. 在R Studio中运行 `devtools::load_all("{GWalkR的路径}")` 来加载包（确保您已经卸载了从CRAN安装的GWalkR）。
+
+如需了解更多R包开发的相关信息，请参考 [*R Packages*](https://r-pkgs.org/) 这本书。
