@@ -11,7 +11,8 @@ gwalkr(
   columnSpecs = list(),
   visConfig = NULL,
   visConfigFile = NULL,
-  toolbarExclude = list()
+  toolbarExclude = list(),
+  useKernel = FALSE
 )
 }
 \arguments{
