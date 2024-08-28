@@ -3,16 +3,21 @@ library(openssl)
 raw_fields <- function(df, columnSpecs = list()) {
   validate_columnSpecs(columnSpecs)
   cols <- colnames(df)
+  if (nrow(df) > 1000) {
+    df_sample <- df[sample(nrow(df),1000),]
+  } else {
+    df_sample <- df
+  }
   props <- lapply(seq_along(cols), function(i) {
-    infer_prop(cols[i], i, df, columnSpecs)
+    infer_prop(cols[i], i, df_sample, columnSpecs)
   })
   return(props)
 }
 
 infer_prop <- function(col, i = NULL, df, columnSpecs = list()) {
   s <- df[[col]]
-  semantic_type <- ifelse((col %in% names(columnSpecs)), columnSpecs[[col]]$semanticType, infer_semantic(s))
-  analytic_type <- ifelse((col %in% names(columnSpecs)), columnSpecs[[col]]$analyticalType, infer_analytic(s))
+  semantic_type <- ifelse((col %in% names(columnSpecs)), columnSpecs[[col]]$semanticType, infer_semantic(s, col))
+  analytic_type <- ifelse((col %in% names(columnSpecs)), columnSpecs[[col]]$analyticalType, infer_analytic(s, col))
   prop <- list(
     fid = fname_encode(col),
     name = col,
@@ -22,28 +27,33 @@ infer_prop <- function(col, i = NULL, df, columnSpecs = list()) {
   return(prop)
 }
 
-infer_semantic <- function(s) {
+is_geo_field <- function(field_name) {
+  field_name <- tolower(trimws(field_name, which = "both", whitespace = " ."))
+  return(field_name %in% c("latitude", "longitude", "lat", "long", "lon"))
+}
+
+infer_semantic <- function(s, field_name) {
   v_cnt <- length(unique(s))
   kind <- class(s)
-  if (any(sapply(c('numeric', 'integer'), inherits, x = s)) & v_cnt > 16) {
+  if (all(kind %in% c("numeric", "integer", "double", "complex")) || is_geo_field(field_name)) {
     return('quantitative')
-  } else if (any(sapply(c('POSIXct', 'POSIXlt', 'Date'), inherits, x = s))) {
+  } else if (any(sapply(c('POSIXct', 'POSIXlt', 'POSIXt', 'Date'), inherits, x = s))) {
     return('temporal')
-  } else if (inherits(s, 'ordered')) {
-    return('ordinal')
   } else {
     return('nominal')
   }
 }
 
-infer_analytic <- function(s) {
+infer_analytic <- function(s, field_name) {
   v_cnt <- length(unique(s))
   kind <- class(s)
-  if ((inherits(s, 'numeric')) | (inherits(s, 'integer') & v_cnt > 16)) {
-    return('measure')
-  } else {
-    return('dimension')
+  if (is_geo_field(field_name)) {
+    return("dimension")
   }
+  if (all(kind %in% c("numeric", "integer", "double", "complex"))) {
+    return("measure")
+  }
+  return("dimension")
 }
 
 validate_columnSpecs <- function(columnSpecs) {
