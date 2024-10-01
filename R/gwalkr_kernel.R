@@ -1,11 +1,22 @@
+convert_timestamps_in_df <- function(df) {
+  for (colname in colnames(df)) {
+    if (inherits(df[[colname]], "POSIXt")) {
+      df[[colname]] <- as.numeric(as.POSIXct(df[[colname]], tz = "UTC")) * 1000
+    }
+  }
+  return(df)
+}
+
 gwalkr_kernel <- function(data, lang, dark, rawFields, visConfig, toolbarExclude) {
-  cat("GWalkR kernel mode init...")
+  cat("GWalkR kernel mode initialized...\n")
+  cat("Note: The console is unavailable while running a Shiny app. You can stop the app to use the console, or press Ctrl + C to terminate.\n")
 
   filter_func <- function(data, req) {
     query <- parseQueryString(req$QUERY_STRING)
 
     res <- duckdb_get_data(query$sql)
-    
+    res <- convert_timestamps_in_df(res)
+
     json <- toJSON(
       res,
       auto_unbox = TRUE
