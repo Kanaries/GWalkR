@@ -25,6 +25,7 @@
 #' @param visConfig An optional config string to reproduce your chart. You can copy the string by clicking "export config" button on the GWalkR interface.
 #' @param visConfigFile An optional config file path to reproduce your chart. You can download the file by clicking "export config" button then "download" button on the GWalkR interface.
 #' @param toolbarExclude An optional list of strings to exclude the tools from toolbar UI. However, Kanaries brand info is not allowed to be removed or changed unless you are granted with special permission.
+#' @param kernelComputation An optional boolean to enable the kernel mode computation which is much more efficient. Default is FALSE.
 #'
 #' @return An \code{htmlwidget} object that can be rendered in R environments
 #'
@@ -33,7 +34,7 @@
 #' gwalkr(mtcars)
 #'
 #' @export
-gwalkr <- function(data, lang = "en", dark = "light", columnSpecs = list(), visConfig = NULL, visConfigFile = NULL, toolbarExclude = list(), useKernel = FALSE) {
+gwalkr <- function(data, lang = "en", dark = "light", columnSpecs = list(), visConfig = NULL, visConfigFile = NULL, toolbarExclude = list(), kernelComputation = FALSE) {
   if (!is.data.frame(data)) stop("data must be a data frame")
   if (!is.null(visConfig) && !is.null(visConfigFile)) stop("visConfig and visConfigFile are mutually exclusive")
   lang <- match.arg(lang, choices = c("en", "ja", "zh"))
@@ -45,7 +46,7 @@ gwalkr <- function(data, lang = "en", dark = "light", columnSpecs = list(), visC
     visConfig <- readLines(visConfigFile, warn=FALSE)
   }
 
-  if (useKernel) {
+  if (kernelComputation) {
     gwalkr_kernel(data, lang, dark, rawFields, visConfig, toolbarExclude)
   } else {
     x = list(
