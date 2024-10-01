@@ -43,6 +43,7 @@ const App: React.FC<IAppProps> = observer((propsIn) => {
                         fields={rawFields}
                         chart={specList}
                         computation={getDataFromKernelBySql(fieldMetas, endpointPath)}
+                        defaultConfig={{ config: { timezoneDisplayOffset: 0 } }}
                     />
                 </div>
             </React.StrictMode>

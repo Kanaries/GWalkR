@@ -5,6 +5,9 @@ my_env <- new.env()
 
 duckdb_register_con <- function(df) {
   my_env$con <- dbConnect(duckdb::duckdb(), ":memory:")
+  dbExecute(my_env$con, "INSTALL icu")
+  dbExecute(my_env$con, "LOAD icu")
+  dbExecute(my_env$con, "SET GLOBAL TimeZone = 'UTC'")
   DBI::dbWriteTable(my_env$con, "gwalkr_mid_table", as.data.frame(df), overwrite = FALSE)
 }
 
