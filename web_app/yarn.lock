@@ -910,11 +910,6 @@
     vega-lite "^5.6.0"
     vega-webgl-renderer "^1.0.0-beta.2"
 
-"@kanaries/gw-dsl-parser@^0.1.49":
-  version "0.1.49"
-  resolved "https://registry.yarnpkg.com/@kanaries/gw-dsl-parser/-/gw-dsl-parser-0.1.49.tgz#9f5c6c731ca47e52e41c319b31a1f8348d6525f6"
-  integrity sha512-gK95BVQhO0I7wN7VsntRzwpdTXqeXj6ESdvVTau+oXEYp4SQP2EVkQDLp+bbIKO2VVQ6iRQrqmzGTPC8wL2Xzg==
-
 "@kanaries/react-beautiful-dnd@^0.1.1":
   version "0.1.1"
   resolved "https://registry.npmjs.org/@kanaries/react-beautiful-dnd/-/react-beautiful-dnd-0.1.1.tgz"
@@ -5647,11 +5642,6 @@ vega@^5.22.1:
     vega-view-transforms "~4.5.9"
     vega-voronoi "~4.2.1"
     vega-wordcloud "~4.1.4"
-
-vite-plugin-wasm@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/vite-plugin-wasm/-/vite-plugin-wasm-3.3.0.tgz#2908ef2529bf8f33f4e549c8c6fda26ad273ca15"
-  integrity sha512-tVhz6w+W9MVsOCHzxo6SSMSswCeIw4HTrXEi6qL3IRzATl83jl09JVO1djBqPSwfjgnpVHNLYcaMbaDX5WB/pg==
 
 vite@^4.4.0:
   version "4.4.2"
