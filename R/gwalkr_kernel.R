@@ -1,3 +1,5 @@
+utils::globalVariables(c(".rs.invokeShinyPaneViewer"))
+
 convert_timestamps_in_df <- function(df) {
   for (colname in colnames(df)) {
     if (inherits(df[[colname]], "POSIXt")) {
@@ -9,7 +11,7 @@ convert_timestamps_in_df <- function(df) {
 
 gwalkr_kernel <- function(data, lang, dark, rawFields, visConfig, toolbarExclude) {
   cat("GWalkR kernel mode initialized...\n")
-  cat("Note: The console is unavailable while running a Shiny app. You can stop the app to use the console, or press Ctrl + C to terminate.\n")
+  cat("Note: The console is unavailable while running a Shiny app. You can stop the app to use the console.\n")
 
   filter_func <- function(data, req) {
     query <- parseQueryString(req$QUERY_STRING)
@@ -27,6 +29,12 @@ gwalkr_kernel <- function(data, lang, dark, rawFields, visConfig, toolbarExclude
       content_type = "application/json",
       content = json
     )
+  }
+
+  app_options <- if (exists(".rs.invokeShinyPaneViewer")) {
+    c(launch.browser = .rs.invokeShinyPaneViewer)
+  } else {
+    list()
   }
 
   app <- shinyApp(
@@ -63,17 +71,18 @@ gwalkr_kernel <- function(data, lang, dark, rawFields, visConfig, toolbarExclude
           name = 'gwalkr',
           x,
           package = 'GWalkR',
-          width='100%',
-          height='100%'
+          width = '100%',
+          height = '100%'
         )
       })
       session$onSessionEnded(function() {
         cat("GwalkR closed")
         duckdb_unregister_con()
+        stopApp()
       })
     },
 
-    options=c(launch.browser = .rs.invokeShinyPaneViewer)
+    options = app_options
   )
 
   if (interactive()) app
