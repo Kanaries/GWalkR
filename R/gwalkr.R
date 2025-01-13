@@ -50,7 +50,7 @@ gwalkr <- function(data, lang = "en", dark = "light", columnSpecs = list(), visC
     gwalkr_kernel(data, lang, dark, rawFields, visConfig, toolbarExclude)
   } else {
     x = list(
-      dataSource = toJSON(data),
+      dataSource = toJSON(data, na='null'),
       rawFields = rawFields,
       i18nLang = lang,
       visSpec = visConfig,
