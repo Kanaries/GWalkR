@@ -60,7 +60,7 @@ export default defineConfig((config: ConfigEnv) => {
       minify: 'terser', // 'esbuild',
       // sourcemap: true,
       sourcemap: false,
-      outDir: '../inst/htmlwidgets/lib/GWalkR',
+      outDir: '../inst/htmlwidgets/lib/gwalkr',
     }
   } as UserConfig;
 })
