@@ -19,5 +19,6 @@ Imports:
     openssl,
     shiny,
     shinycssloaders,
-    DBI,
+    DBI
+Suggests:
     duckdb

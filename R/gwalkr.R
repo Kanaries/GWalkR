@@ -8,7 +8,6 @@
 #' @import shiny
 #' @import shinycssloaders
 #' @import DBI
-#' @import duckdb
 #'
 #' @param data A data frame to be visualized in the GWalkR. The data frame should not be empty.
 #' @param lang A character string specifying the language for the widget. Possible values are "en" (default), "ja", "zh".
@@ -25,7 +24,7 @@
 #' @param visConfig An optional config string to reproduce your chart. You can copy the string by clicking "export config" button on the GWalkR interface.
 #' @param visConfigFile An optional config file path to reproduce your chart. You can download the file by clicking "export config" button then "download" button on the GWalkR interface.
 #' @param toolbarExclude An optional list of strings to exclude the tools from toolbar UI. However, Kanaries brand info is not allowed to be removed or changed unless you are granted with special permission.
-#' @param kernelComputation An optional boolean to enable the kernel mode computation which is much more efficient. Default is FALSE.
+#' @param kernelComputation An optional boolean to enable the kernel mode computation which is much more efficient. Requires duckdb package installed. Default is FALSE.
 #'
 #' @return An \code{htmlwidget} object that can be rendered in R environments
 #'
@@ -44,6 +43,10 @@ gwalkr <- function(data, lang = "en", dark = "light", columnSpecs = list(), visC
 
   if (!is.null(visConfigFile)) {
     visConfig <- readLines(visConfigFile, warn=FALSE)
+  }
+  if (kernelComputation && !requireNamespace("duckdb", quietly = TRUE)) {
+    warning("The 'duckdb' package is not installed. This feature will be disabled. Please install it with install.packages('duckdb').", call. = FALSE)
+    kernelComputation <- FALSE
   }
 
   if (kernelComputation) {

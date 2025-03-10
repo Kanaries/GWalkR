@@ -1,5 +1,4 @@
 library(DBI)
-library(duckdb)
 
 my_env <- new.env()
 
