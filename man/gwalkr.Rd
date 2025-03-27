@@ -38,7 +38,7 @@ only be one of "measure" or "dimension". \code{semanticType} can only be one of
 
 \item{toolbarExclude}{An optional list of strings to exclude the tools from toolbar UI. However, Kanaries brand info is not allowed to be removed or changed unless you are granted with special permission.}
 
-\item{kernelComputation}{An optional boolean to enable the kernel mode computation which is much more efficient. Default is FALSE.}
+\item{kernelComputation}{An optional boolean to enable the kernel mode computation which is much more efficient. Requires duckdb package installed. Default is FALSE.}
 }
 \value{
 An \code{htmlwidget} object that can be rendered in R environments
