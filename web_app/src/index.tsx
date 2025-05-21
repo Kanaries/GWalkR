@@ -18,6 +18,13 @@ const App: React.FC<IAppProps> = observer((propsIn) => {
     const { dataSource, visSpec, rawFields, toolbarExclude, useKernel, ...props } = propsIn;
     const storeRef = React.useRef<VizSpecStore | null>(null);
 
+    React.useEffect(() => {
+        if (typeof window !== "undefined" && storeRef.current) {
+            (window as any).gwalkrStores = (window as any).gwalkrStores || {};
+            (window as any).gwalkrStores[propsIn.id] = storeRef;
+        }
+    }, [storeRef.current]);
+
     const specList = visSpec ? formatSpec(JSON.parse(visSpec) as any[], rawFields) : undefined;
     const [exportOpen, setExportOpen] = useState(false);
 
@@ -99,3 +106,13 @@ const GWalkR = (props: IAppProps, id: string) => {
 };
 
 export default GWalkR;
+
+if (typeof window !== "undefined") {
+    (window as any).exportGWalkRConfig = (id: string) => {
+        const storeRef = (window as any).gwalkrStores?.[id];
+        if (storeRef && storeRef.current) {
+            return storeRef.current.exportCode();
+        }
+        return null;
+    };
+}
