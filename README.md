@@ -64,6 +64,32 @@ Showcase your data insights with editable and explorable charts on a webpage ([e
 
 <img width="700" alt="image" src="https://github.com/bruceyyu/GWalkR/assets/33870780/4798367c-0dd4-4ad3-b25b-7ea48b79205a">
 
+### Save and restore visualizations in Shiny
+
+Use `request_vis_config()` to programmatically export the current visualization configuration from a `gwalkr` widget. The snippet below prints the JSON after clicking **Save Viz**.
+
+```R
+library(shiny)
+library(GWalkR)
+data(mtcars)
+
+ui <- fluidPage(
+  gwalkrOutput("gw"),
+  actionButton("save", "Save Viz"),
+  verbatimTextOutput("config")
+)
+
+server <- function(input, output, session) {
+  output$gw <- renderGwalkr(gwalkr(mtcars))
+  observeEvent(input$save, request_vis_config("gw"))
+  output$config <- renderText({ input$gw_visConfig })
+}
+
+if (interactive()) shinyApp(ui, server)
+```
+
+See `inst/examples/export_vis_config/app.R` for a complete example.
+
 ## Development
 We encourage developers from the amazing open-source community to help improve this R package! 
 
