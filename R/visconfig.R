@@ -8,6 +8,29 @@
 #' @param session The shiny session object.
 #'
 #' @return No return value. The result will be available on the client side.
+#'
+#' @examples
+#' # A simple Shiny app that prints the exported config
+#' library(shiny)
+#' library(GWalkR)
+#' data(mtcars)
+#'
+#' ui <- fluidPage(
+#'   gwalkrOutput("gw"),
+#'   actionButton("save", "Save Viz"),
+#'   verbatimTextOutput("config")
+#' )
+#'
+#' server <- function(input, output, session) {
+#'   output$gw <- renderGwalkr(gwalkr(mtcars))
+#'
+#'   observeEvent(input$save, request_vis_config("gw"))
+#'
+#'   output$config <- renderText({ input$gw_visConfig })
+#' }
+#'
+#' if (interactive()) shinyApp(ui, server)
+#'
 #' @export
 request_vis_config <- function(id, session = shiny::getDefaultReactiveDomain()) {
   if (is.null(session)) {

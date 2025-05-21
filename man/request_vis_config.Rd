@@ -18,3 +18,23 @@ No return value. The result will be available on the client side via
 Send a message to the browser to export the current visualization configuration
 of a \code{gwalkr} widget.
 }
+
+\examples{
+library(shiny)
+library(GWalkR)
+data(mtcars)
+
+ui <- fluidPage(
+  gwalkrOutput("gw"),
+  actionButton("save", "Save Viz"),
+  verbatimTextOutput("config")
+)
+
+server <- function(input, output, session) {
+  output$gw <- renderGwalkr(gwalkr(mtcars))
+  observeEvent(input$save, request_vis_config("gw"))
+  output$config <- renderText({ input$gw_visConfig })
+}
+
+if (interactive()) shinyApp(ui, server)
+}
