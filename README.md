@@ -22,6 +22,12 @@ It can simplify your R data analysis and data visualization workflow, by turning
 
 > If you prefer using Python, you can check out [PyGWalker](https://github.com/Kanaries/pygwalker)!
 
+
+> [!TIP]
+> If you want more AI features, we also build [runcell](https://runcell.dev), an AI Code Agent in Jupyter that understands your code/data/cells and generate code, execute cells and take actions for you. It can be used in jupyter lab with `pip install runcell`
+
+https://github.com/user-attachments/assets/9ec64252-864d-4bd1-8755-83f9b0396d38
+
 ## Getting Started
 
 ### 📦 Setup GWalkR
